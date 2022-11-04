@@ -23,8 +23,7 @@ include "person.php";
       $img=afficherImage();
     }
     // affichage de l'objet;
-     $persone = new Personne ();
-     $persone->getInfo(); 
+     
 
 
     if($pdo!=null){
@@ -41,17 +40,19 @@ include "person.php";
         $statement=$pdo ->prepare($query);
         $statement -> execute($params);
         echo "user ajouté avec succé";
+        echo "<br>";
   }
-
+  $persone = new Personne ($nom,$prenom,$age,$img);
+  $persone->getInfo(); 
 }
 
 
 // pour afficher la base de donne sur le navigateur sous forme d'un tableau;    
 
-/*    $selectQuery = "select * from users";
-  $stmnt=$pdo-> prepare($selectQuery);
-  $stmnt ->execute();
-  $data=$stmnt ->fetch(PDO::FETCH_ASSOC);
-  print_r($data); */
+  //   $selectQuery = "select * from users";
+  // $stmnt=$pdo-> prepare($selectQuery);
+  // $stmnt ->execute();
+  // $data=$stmnt ->fetch(PDO::FETCH_ASSOC);
+  // print_r($data); 
   
   
